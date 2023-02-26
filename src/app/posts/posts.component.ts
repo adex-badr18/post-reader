@@ -25,12 +25,16 @@ export class PostsComponent implements OnInit {
         votes: 1
       },
       {
-        id: 1,
+        id: 3,
         title: 'My favorite backend framework',
         body: 'My favorite backend framework is NodeJS and Express.',
         votes: 1
       }
     ];
+  }
+
+  hidePost(post: Post): void {
+    this.posts = this.posts.filter(p => p.id !== post.id);
   }
 
 }
