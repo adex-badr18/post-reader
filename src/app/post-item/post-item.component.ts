@@ -22,4 +22,12 @@ export class PostItemComponent implements OnInit {
 
   }
 
+  upvote(post: Post): void {
+    post.votes += 1;
+  }
+
+  downvote(post: Post): void {
+    post.votes -= 1;
+  }
+
 }
