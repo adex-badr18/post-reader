@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/Post';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,32 +11,15 @@ export class PostsComponent implements OnInit {
   title: string = "Posts";
   posts: Post[] = [];
 
+  constructor(private postService: PostService) { }
+
   ngOnInit(): void {
-    this.posts = [
-      {
-        id: 1,
-        title: 'My first post',
-        body: 'This is my first post.',
-        votes: 1
-      },
-      {
-        id: 2,
-        title: 'My favorite frontend framework',
-        body: 'My favorite frontend framework is Angular.',
-        votes: 1
-      },
-      {
-        id: 3,
-        title: 'My favorite backend framework',
-        body: 'My favorite backend framework is NodeJS and Express.',
-        votes: 1
-      }
-    ];
+    this.posts = this.postService.getPost();
   }
 
   hidePost(post: Post): void {
     this.posts = this.posts.filter(p => p.id !== post.id);
-    window.alert(`${post.title} has been added to favorite.`)
+    // window.alert(`${post.title} is hidden.`);
   }
 
 }
