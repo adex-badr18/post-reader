@@ -8,9 +8,9 @@ describe('PostsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostsComponent ]
+      declarations: [PostsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(PostsComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,9 @@ describe('PostsComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have the correct title', () => {
+    expect(component.title).toBe("Posts");
   });
 });
