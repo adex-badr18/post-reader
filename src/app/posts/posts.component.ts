@@ -29,4 +29,10 @@ export class PostsComponent implements OnInit {
     // window.alert(`${post.title} is hidden.`);
   }
 
+  addPost(post: Post) {
+    this.posts.unshift(post); // add the post to the top of the post array.
+
+    alert('Post added');
+  }
+
 }
