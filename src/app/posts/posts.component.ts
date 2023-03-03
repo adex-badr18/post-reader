@@ -15,6 +15,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPost().subscribe(res => {
+      // add votes to each returned object in the stream
       for (let i = 0; i < res.length; i++) {
         const post = res[i];
         post['votes'] = 1;
